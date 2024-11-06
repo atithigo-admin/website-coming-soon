@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AtithiGo - Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffcf7; /* Custom background color */
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+
+        .logo {
+    max-width: 300px;  /* Adjust this value for logo size */
+    height: auto;      /* Maintain aspect ratio */
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #637d4d; /* Updated color for AtithiGo */
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #555;
+            margin-bottom: 40px;
+            font-weight: 400;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 50px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .counter span {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #637d4d;
+        }
+
+        .countdown-text {
+            font-size: 1.2rem;
+            color: #777;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .cta {
+            padding: 10px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background-color: #637d4d;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #637d4d;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Disable Right-click */
+        body {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none; /* Disable text selection */
+            -moz-user-select: none; /* Disable text selection */
+            -ms-user-select: none; /* Disable text selection */
+            user-select: none; /* Disable text selection */
+        }
+
+        /* Disable Image Dragging */
+        img {
+            -webkit-user-drag: none; /* Prevent image dragging */
+            user-drag: none; /* Prevent image dragging */
+            pointer-events: none; /* Disable interaction with images */
+            cursor: default; /* Change cursor to default */
+        }
+
+        /* Disable Right-click Menu */
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        /* Prevent copy-paste */
+        .container * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Logo Placeholder -->
+        <img src="logo.png" alt="AtithiGo Logo" class="logo">
+
+
+        <!-- Subheading -->
+        <h2>Discover the world with AtithiGo, your gateway to Incredible India</h2>
+
+        <!-- Countdown Timer -->
+        <div class="counter">
+            <div>
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div>
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div>
+                <span id="minutes">00</span>
+                <p>Minutes</p>
+            </div>
+        </div>
+
+        <!-- Countdown Text -->
+        <div class="countdown-text">
+            <p>Hurry up! The booking experience you've been waiting for is almost here.</p>
+        </div>
+
+        <!-- Call-to-Action Button -->
+        <button class="cta" onclick="alert('Stay tuned for updates!')">Stay Updated</button>
+    </div>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("December 31, 2024 00:00:00").getTime();
+            const currentDate = new Date().getTime();
+            const timeRemaining = targetDate - currentDate;
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+
+    <!-- Script to disable right-clicking globally -->
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
